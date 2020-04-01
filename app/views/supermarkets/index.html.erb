@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <% @supermarkets.each do |supermarket| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card my-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= supermarket.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= supermarket.address %></h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="text-<%= supermarket.open ? 'success' : 'danger' %>"><strong><%= supermarket.open ? "Open" : "Closed" %></strong></p>
+            <%= link_to "Edit", edit_supermarket_path(supermarket.id), class: "card-link" %>
+            <%= link_to "Delete", supermarket_path(supermarket.id), method: :delete, class: "card-link" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
