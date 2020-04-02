@@ -6,10 +6,32 @@
           <div class="card-body">
             <h5 class="card-title"><%= supermarket.name %></h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= supermarket.address %></h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             <p class="text-<%= supermarket.open ? 'success' : 'danger' %>"><strong><%= supermarket.open ? "Open" : "Closed" %></strong></p>
-            <%= link_to "Edit", edit_supermarket_path(supermarket.id), class: "card-link" %>
-            <%= link_to "Delete", supermarket_path(supermarket.id), method: :delete, class: "card-link" %>
+
+            <% if supermarket.reviews.empty? %>
+              <p>There are no reviews yet here.</p>
+            <% else %>
+              <h6>Reviews:</h6>
+              <ul class="list-group">
+                <% supermarket.reviews.each do |review| %>
+                  <li class="list-group-item"><%= review.content %></li>
+                <% end %>
+              </ul>
+            <% end %>
+
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Add a new review</button>
+
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <%= simple_form_for([supermarket, @review]) do |f| %>
+                    <%= f.input :content %>
+                    <%= f.input :rating %>
+                    <%= f.submit %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

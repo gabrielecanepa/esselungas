@@ -3,6 +3,7 @@ class SupermarketsController < ApplicationController
 
   def index
     @supermarkets = Supermarket.all.reverse
+    @review = Review.new
   end
 
   def show; end
