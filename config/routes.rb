@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [ :create ] # post /supermarkets/:supermarket_id/reviews, to: "reviews#create"
   end
 
+  # TODO: delete this stupid comment
+
   # get :index -> page with all supermarkets
   # get :new -> page with form for new supermarket
   # post :create -> creates a supermarket -> back to :index
