@@ -34,3 +34,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Don't lock gems and packages
+Gemfile.lock
+yarn.lock
