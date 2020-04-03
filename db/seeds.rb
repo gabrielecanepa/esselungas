@@ -2,6 +2,7 @@ require "open-uri"
 
 puts "Cleaning database..."
 Supermarket.destroy_all
+Product.destroy_all
 
 puts "Creating supermarkets..."
 
@@ -12,9 +13,10 @@ fetched_reviews.each do |review|
   review.symbolize_keys!
 end
 
-binding.pry
-
 20.times do
+  product = Product.create(
+    name: Faker::Food.dish
+  )
   supermarket = Supermarket.create(
     name: Faker::Restaurant.name,
     address: Faker::Address.full_address,
@@ -32,4 +34,13 @@ binding.pry
   end
 
   puts "Created supermarket with reviews!"
+end
+
+Supermarket.all.each do |supermarket|
+  rand(1..5).times do |n|
+    stock = Stock.create(
+      supermarket: supermarket,
+      product: Product.all.sample
+    )
+  end
 end
