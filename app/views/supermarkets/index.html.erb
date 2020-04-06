@@ -8,7 +8,7 @@
             <h6 class="card-subtitle mb-2 text-muted"><%= supermarket.address %></h6>
             <p class="text-<%= supermarket.open ? 'success' : 'danger' %>"><strong><%= supermarket.open ? "Open" : "Closed" %></strong></p>
             <br>
-            <%= link_to "See supermarket", supermarket_path(supermarket), class: "btn btn-primary" %>
+            <%= link_to "See #{supermarket.name}", supermarket_path(supermarket), class: "btn btn-primary" %>
           </div>
         </div>
       </div>

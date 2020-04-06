@@ -1,4 +1,7 @@
-<h1><%= @supermarket.name %></h1>
-<% @supermarket.products.each do |product| %>
-  <%= product.name %>
-<% end %>
+<h2>Products available at <%= @supermarket.name %></h2>
+
+<ul class="list-group">
+  <% @supermarket.products.each do |product| %>
+    <li class="list-group-item"><%= product.name %></li>
+  <% end %>
+</ul>

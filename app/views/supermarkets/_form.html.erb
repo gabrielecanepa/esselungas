@@ -1,6 +1,8 @@
 <%= simple_form_for(supermarket) do |f| %>
   <%= f.input :name %>
   <%= f.input :address %>
+  <%= f.input :picture, as: :file, class: "form-control-file" %>
+  <%= f.label :open %>
   <%= f.check_box :open %>
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-success d-block mt-3" %>
 <% end %>
