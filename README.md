@@ -64,3 +64,11 @@ git checkout master
 git branch -D awesome-feature && git sweep
 git pull origin master
 ```
+
+## Deployment
+
+You need to be a collaborator on Heroku to be able to deploy. If you are, deploy new commits with:
+
+```sh
+git push heroku master
+```
