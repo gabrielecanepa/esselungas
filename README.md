@@ -14,7 +14,7 @@ bundle
 yarn
 
 # 3. Create db and fake records
-rails db:migrate db:seeds
+rails db:create db:migrate db:seeds
 ```
 
 ## Run

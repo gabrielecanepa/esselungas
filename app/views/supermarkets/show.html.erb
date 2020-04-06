@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 mt-2">
+      <h2><%= @supermarket.name %></h2>
+      <p><%= @supermarket.address %></p>
+
+      <h3>Reviews:</h3>
+      <% if @supermarket.reviews.empty? %>
+        <p>There are no reviews yet here.</p>
+      <% else %>
+        <h6>Reviews:</h6>
+        <ul class="list-group">
+          <% @supermarket.reviews.each do |review| %>
+            <li class="list-group-item">
+              <%= review.content %>
+              <%= "⭐️" * review.rating %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <h3>Products:</h3>
+      <ul class="list-group">
+        <% @supermarket.products.each do |product| %>
+          <li class="list-group-item"><%= product.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
