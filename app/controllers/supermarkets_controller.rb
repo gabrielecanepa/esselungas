@@ -1,12 +1,14 @@
 class SupermarketsController < ApplicationController
-  before_action :set_supermarket, only: [ :show, :edit, :update, :destroy ]
+  before_action :set_supermarket, only: %i[show edit update destroy] # <- array of symbols!
 
   def index
     @supermarkets = Supermarket.all.reverse
-    @review = Review.new
   end
 
-  def show; end
+  def show
+    # Remember the before_action! Here we also have @supermarket
+    @review = Review.new
+  end
 
   def new
     @supermarket = Supermarket.new
@@ -21,18 +23,18 @@ class SupermarketsController < ApplicationController
 
   def edit; end
 
-  # No view, it's a Patch request
+  # No view, it's a PATCH/PUT request
   def update
     @supermarket.update(supermarket_params)
 
     redirect_to root_path
   end
 
-  # No view, it's a Delete request
+  # No view, it's a DELETE request
   def destroy
     @supermarket.delete
 
-    redirect_to supermarkets_path
+    redirect_to root_path
   end
 
   private
@@ -42,6 +44,6 @@ class SupermarketsController < ApplicationController
   end
 
   def supermarket_params
-    params.require(:supermarket).permit(:name, :address, :open)
+    params.require(:supermarket).permit(:name, :address, :open, :picture)
   end
 end
