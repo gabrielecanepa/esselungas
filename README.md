@@ -1,24 +1,58 @@
-# README
+# Esselungas
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an app to find if supermarkets are currently open and the products they have available.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+```sh
+# 1. Clone and go to the repo
+git clone git@github.com:gabrielecanepa/esselungas ~/code/$GITHUB_USERNAME
+cd ~/code/$GITHUB_USERNAME/esselungas
+# 2. Install gems and packages
+bundle
+yarn
+# 3. Create db and fake records
+rails db:migrate db:seeds
+```
 
-* System dependencies
+## Run
 
-* Configuration
+Start a new server and go to http://localhost:3000:
 
-* Database creation
+```sh
+rails s
+```
 
-* Database initialization
+You can pull new changes and update your local version with:
 
-* How to run the test suite
+```sh
+git pull origin master # get the latest changes
 
-* Services (job queues, cache servers, search engines, etc.)
+# Are there new gems?
+bundle
+# New js packages?
+yarn
+# New migrations/seeds?
+rails db:migrate db:seed
+```
 
-* Deployment instructions
+## Development
 
-* ...
+To develop and propose new changes:
+
+```sh
+# 1. Create and switch to a new branch
+git checkout -b new-feature
+# 2. Open sublime and add your changes
+stt
+# 3. Create your commit and push to your branch
+git add .
+git commit -m "An awesome feature"
+git push origin new-feature
+# 4. Open github and create the pull request there
+hub browse
+# 5. When the pr gets merged, go back to master, delete the branch and get the latest changes
+git checkout master
+git branch -D new-feature && git sweep
+git pull origin master
+```
