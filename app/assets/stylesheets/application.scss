@@ -1,1 +1,6 @@
 @import "bootstrap/scss/bootstrap";
+
+// Hide the weird star next to labels
+abbr[title="required"] {
+  display: none;
+}
