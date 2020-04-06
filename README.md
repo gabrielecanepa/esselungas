@@ -1,4 +1,4 @@
-# Esselungas
+# Esselunga
 
 This is an app to find if supermarkets are currently open and the products they have available.
 
