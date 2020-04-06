@@ -11,9 +11,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-light bg-light">
-      <%= link_to "Esselunga", root_path, class: "navbar-brand" %>
-    </nav>
+    <%= render "layouts/navbar" %>
     <%= yield %>
   </body>
 </html>

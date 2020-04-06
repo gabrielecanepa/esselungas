@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # Don't lock gems and packages
 yarn.lock
+
+# Ignore the env file
+.env

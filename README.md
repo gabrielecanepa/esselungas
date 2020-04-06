@@ -2,12 +2,16 @@
 
 This is an app to find out which Esselunga supermarkets are open and the products they have currently available 🧻
 
+![](./app/assets/images/screenshot.png)
+
 ## Setup
 
 ```sh
 # 1. Clone and go to the repo
 git clone git@github.com:gabrielecanepa/esselunga ~/code/$GITHUB_USERNAME
 cd ~/code/$GITHUB_USERNAME/esselunga
+touch .env # create an env file
+echo ".env" >> .gitignore # and hide it from git
 
 # 2. Install gems and packages
 bundle
@@ -19,13 +23,22 @@ rails db:create db:migrate db:seeds
 
 ## Run
 
+In order to upload and get images, you need to provide a [Cloudinary](https://cloudinary.com/users/register/free) url . Copy it from your account, and paste it in your `.env` file.
+
+![](./app/assets/images/cloudinary.png)
+
+```sh
+# Inside your .env file
+CLOUDINARY_URL=cloudinary://xxxxxxxx:xxxxxx@gabriele-canepa93
+```
+
 Start a new server and go to http://localhost:3000:
 
 ```sh
 rails s
 ```
 
-You can pull new changes and update your local version with:
+Every time there's something new, you can pull new changes and update your local version with:
 
 ```sh
 git pull origin master
@@ -67,8 +80,15 @@ git pull origin master
 
 ## Deployment
 
-You need to be a collaborator on Heroku to be able to deploy. If you are, deploy new commits with:
+You must be a collaborator on Heroku to be able to deploy. If you are (and just if you contributed during a livecode!), deploy new commits with:
 
 ```sh
 git push heroku master
+```
+
+If not already done by someone else, send your Cloudinary url to Heroku with:
+
+```sh
+# TODO: use your cloudinary url
+heroku config:set CLOUDINARY_URL="cloudinary://xxxxxxxx:xxxxxx@gabriele-canepa93"
 ```
