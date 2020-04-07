@@ -23,7 +23,7 @@ rails db:create db:migrate db:seeds
 
 ## Run
 
-In order to upload and get images, you need to provide a [Cloudinary](https://cloudinary.com/users/register/free) url . Copy it from your account, and paste it in your `.env` file.
+In order to upload and get images, you need to provide a [Cloudinary](https://cloudinary.com/users/register/free) url. Copy it from your account, then paste it in your `.env` file.
 
 ![](./app/assets/images/cloudinary.png)
 
@@ -82,7 +82,7 @@ git pull -f origin master
 
 ## Deployment
 
-You must be a collaborator on [Heroku](https://signup.heroku.com) to be able to deploy. If you are (and just if you contributed to a livecode!), you can deploy new commits with:
+You must be a collaborator on [Heroku](https://signup.heroku.com) to be able to deploy. If you are (and just if you contributed to the last livecode session!), deploy the new commits with:
 
 ```sh
 git push -f heroku master
